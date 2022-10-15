@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome" />
+    <title> NRSI </title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+        <nav>
+            <a href="#" class="name">NRSI</a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Our Team</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Scholarships</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <div id ="Logo">
+            <div class="logo" id ="myAnimation">
+                <img src="./logo2.png" alt="" />
+            </div>
+        </div>
+    
+
+        <div class="container">
+            <h2 class="main-title">Natural Resource Solutions Inc</h2>
+            <h3 class="sub-title">Aquatic, Terrestrial and Wetland Biologists</h3>
+            <section class="parallax">
+                <img src="flower1.png" data-speed="-5" data-depth="1.00" class="layer" id="layer1">
+                <img src="flower2bee.png" data-speed="3" data-depth="0.80" class="layer" id="layer2">
+                <img src="flower3.png" data-speed="8" data-depth="0.60" class="layer" id="layer3">
+                <img src="flower4.png" data-speed="12" data-depth="0.40" class="layer" id="layer4">
+                <img src="flower5.png" data-speed="15" data-depth="0.20" class="layer" id="layer5">
+            </section>
+        </div>
+        <div class="content">
+            <div class="content-images">
+              <div>
+                <h4 class="content-title">In The Community</h4>
+                <h3 class="content-text">We are always striving to educate and connect with aspiring biologists.</h3>
+              </div>
+              <div>
+                <h4 class="content-title">In The Field</h4>
+                <h3 class="content-text">We do our own field studies and stand behind all of the data we collect.</h3>
+              </div>
+            </div>
+        </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.1.18/jquery.backstretch.min.js"></script>
+    
+    <script type="text/javascript">
+        document.addEventListener("mousemove", parallax);
+        function parallax(e) {
+            this.querySelectorAll('.layer').forEach(layer => {
+                const speed = layer.getAttribute('data-speed')
+                const x = (window.innerWidth - e.pageX*speed)/750
+                const y = (window.innerHeight - e.pageY*speed)/750
+                layer.style.transform = `translateX(${x}px) translateY(${y}px)`
+            });
+        }
+
+        $(window).scroll(function() {
+            $(".main-title").css("opacity", 1 - $(window).scrollTop() / 350);
+        })
+
+        $(window).scroll(function() {
+            $(".sub-title").css("opacity", 1 - $(window).scrollTop() / 350);
+        })
+
+        $(window).scroll(function() {
+            $(".logo").css("opacity", 1 - $(window).scrollTop() / 350);
+        })
+
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 800) {
+                $('.container').css("opacity", 0.4).fadeIn("5000");;
+            }
+            else{
+                $('.container').css("opacity", 1).fadeIn("5000") ;
+            }
+}       );
+
+        window.addEventListener("scroll", function() {
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+    </script>
+    
+</body>
+</html>
